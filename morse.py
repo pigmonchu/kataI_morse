@@ -43,10 +43,50 @@ morse = {
     '!': '——··——'
 }
 
-reverso = {}
-for key in morse: 
-    valor = morse[key]
-    reverso[valor] = key
+reverso = {
+   '·—': 'A',
+   '—···': 'B',
+   '—·—·': 'C',
+   '—··': 'D',
+   '·': 'E',
+   '··—·': 'F',
+   '——·': 'G',
+   '····': 'H',
+   '··': 'I',
+   '·———': 'J',
+   '—·—': 'K',
+   '·—··': 'L',
+   '——': 'M',
+   '—·': 'N',
+   '——·——': 'Ñ',
+   '———': 'O',
+   '·——·': 'P',
+   '——·—': 'Q',
+   '·—·': 'R',
+   '···': 'S',
+   '—': 'T',
+   '··—': 'U',
+   '···—': 'V',
+   '·——': 'W',
+   '—··—': 'X',
+   '—·——': 'Y',
+   '——··': 'Z',
+   '—————': '0',
+   '·————': '1',
+   '··———': '2',
+   '···——': '3',
+   '····—': '4',
+   '·····': '5',
+   '—····': '6',
+   '——···': '7',
+   '———··': '8',
+   '————·': '9',
+   '·—·—·—': '.',
+   '—·—·——': ',',
+   '··——··': '?',
+   '·—··—·': '"',
+   '——··——': '!'
+}
 
 def toMorse(texto):
     texto = texto.upper()
@@ -61,13 +101,14 @@ def toMorse(texto):
     return resultado
 
 def toPlain(codigo):
-   codigo = codigo.split(' ')
-   letras = ''
-   for caracter in codigo:
-       if caracter in reverso:
-           letras += reverso[caracter]
+    codigo = codigo.split(' ')
+    letras = ''
+    for caracter in codigo:
+        if caracter in reverso:
+            letras += reverso[caracter]
 
-       else:
-           letras += " "
+        else:
+            letras += " "
 
-   return letras
+    return letras.capitalize()
+
