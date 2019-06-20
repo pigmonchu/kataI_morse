@@ -1,4 +1,4 @@
-# kata I BootcampZ 3ª Ed: morse
+# kata I BootcampZ 3ª Ed: morse (editado)
 Programa para crear telegramas con word
 y con suerte un traductor a morse con tkinter
 
