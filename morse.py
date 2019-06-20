@@ -1,6 +1,8 @@
 from docx import Document
 from docx.shared import Pt
 from time import strftime, gmtime
+from datetime import datetime
+datetime.now()
 
 morse = {
     'A':'·—', 
@@ -121,8 +123,8 @@ def telegram(remitente, destinatario, mensaje):
 
     document.add_heading('Telegram', 0)
 
-    fechahora = gmtime()
-    hoy = strftime("%d - %b - %Y", fechahora)
+    fechahora = datetime.now()
+    hoy = fechahora.strftime("%d - %b - %Y")
 
     fecha = document.add_paragraph(hoy)
     fecha.alignment = 2
@@ -151,4 +153,4 @@ def telegram(remitente, destinatario, mensaje):
     celda_plano = table.rows[1].cells[0]
     celda_plano.text = mensaje
 
-    document.save("{}{}.docx".format(destinatario, strftime("%Y%m%d%H%M%S%z", fechahora)))
+    document.save("envios/{}{}.docx".format(destinatario, fechahora.strftime("%Y%m%d%H%M%S%f")))
